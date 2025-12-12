@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "check:sdk": "node -e \"const fs=require('fs'); if(!fs.existsSync('lib/gluon-gold-sdk/dist')){ process.exit(1) }\" || bun run build:sdk",
-    "dev": "bun run check:sdk && next dev",
-    "buildtest": "next build",
-    "build": "bun run build:sdk && next build",
+    "dev": "bun run check:sdk && next dev --webpack",
+    "buildtest": "next build --webpack",
+    "build": "bun run build:sdk && next build --webpack",
     "start": "next start",
     "lint": "next lint",
     "build:sdk": "cd lib/gluon-gold-sdk && bun install && bun run build",
@@ -14,7 +14,9 @@
     "format": "prettier --write .",
     "prepare": "husky"
   },
-  "workspaces": ["lib/*"],
+  "workspaces": [
+    "lib/*"
+  ],
   "dependencies": {
     "@fleet-sdk/core": "^0.8.1",
     "@radix-ui/react-dialog": "^1.1.4",
@@ -40,10 +42,10 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.471.0",
     "motion": "^12.19.2",
-    "next": "15.1.3",
+    "next": "^16.0.10",
     "next-themes": "^0.4.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-number-format": "^5.4.4",
     "recharts": "^2.12.0",
     "sonner": "^2.0.5",
@@ -59,8 +61,8 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.3.0",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.2.3",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.6.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.3",
